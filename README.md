@@ -1,21 +1,14 @@
 # Gemini CLI to API Proxy
 
-A Go-based proxy server that converts Google's Gemini CLI tool into OpenAI-compatible API endpoints.
+A Go-based proxy server that converts Google's Gemini CLI tool into OpenAI-compatible API endpoints with streaming support, multiple authentication methods, and Docker deployment ready.
 
 Based on [geminicli2api](https://github.com/gzzhongqi/geminicli2api)
-
-## Features
-
-- OpenAI-compatible chat completions API
-- Native Gemini API proxy
-- Streaming support
-- Multiple authentication methods
-- Docker deployment ready
-- No external dependencies
 
 ## Quick Start
 
 ### Docker
+
+Build and run the proxy server with Docker - recommended for production deployment.
 
 ```bash
 # Build
@@ -30,6 +23,8 @@ docker run -p 8888:8888 \
 
 ### Local Development
 
+Run directly from source code for development and testing.
+
 ```bash
 # Install dependencies
 go mod tidy
@@ -43,6 +38,8 @@ go build -o geminicli2api cmd/server/main.go
 
 ## Environment Variables
 
+Configure authentication and Google Cloud credentials.
+
 ### Required
 - `GEMINI_AUTH_PASSWORD`: API authentication password
 
@@ -53,9 +50,11 @@ go build -o geminicli2api cmd/server/main.go
 
 ## API Endpoints
 
+Available endpoints for both OpenAI-compatible and native Gemini APIs.
+
 ### OpenAI Compatible
-- `POST /v1/chat/completions` - Chat completions
-- `GET /v1/models` - List models
+- `POST /v1/chat/completions` - Chat completions (streaming & non-streaming)
+- `GET /v1/models` - List available models
 
 ### Native Gemini
 - `POST /v1beta/models/{model}:generateContent` - Generate content
@@ -63,6 +62,8 @@ go build -o geminicli2api cmd/server/main.go
 - `GET /v1beta/models` - List models
 
 ## Usage Example
+
+Basic chat completion using curl with OpenAI-compatible endpoint.
 
 ```bash
 curl -X POST http://localhost:8888/v1/chat/completions \
@@ -75,6 +76,8 @@ curl -X POST http://localhost:8888/v1/chat/completions \
 ```
 
 ## Authentication
+
+Multiple authentication methods supported for API access.
 
 - Bearer Token: `Authorization: Bearer YOUR_PASSWORD`
 - Basic Auth: `Authorization: Basic base64(username:YOUR_PASSWORD)`
