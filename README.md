@@ -80,18 +80,6 @@ curl -X POST http://localhost:8888/v1/chat/completions \
 - Basic Auth: `Authorization: Basic base64(username:YOUR_PASSWORD)`
 - Query Parameter: `?key=YOUR_PASSWORD`
 
-## Supported Models
-
-- `gemini-2.5-pro`
-- `gemini-2.5-flash`
-- `gemini-1.5-pro`
-- `gemini-1.5-flash`
-
-### Model Variants
-- `-search` (e.g., `gemini-2.5-pro-search`) - Google Search grounding
-- `-nothinking` (e.g., `gemini-2.5-flash-nothinking`) - Minimal reasoning
-- `-maxthinking` (e.g., `gemini-2.5-pro-maxthinking`) - Max reasoning budget
-
 ## License
 
 MIT License - see [LICENSE](LICENSE) file.
