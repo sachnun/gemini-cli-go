@@ -8,17 +8,14 @@ Based on [geminicli2api](https://github.com/gzzhongqi/geminicli2api)
 
 ### Docker
 
-Build and run the proxy server with Docker - recommended for production deployment.
+Run the pre-built Docker image - recommended for production deployment.
 
 ```bash
-# Build
-docker build -t geminicli2api .
-
 # Run
 docker run -p 8888:8888 \
   -e GEMINI_AUTH_PASSWORD=your_password \
-  -e GEMINI_CREDENTIALS='{"client_id":"...","token":"..."}' \
-  geminicli2api
+  ghcr.io/sachnun/gemini-cli-go:latest
+
 ```
 
 ### Local Development
