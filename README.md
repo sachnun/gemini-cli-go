@@ -14,6 +14,7 @@ Run the pre-built Docker image - recommended for production deployment.
 # Run
 docker run -p 8888:8888 \
   -e GEMINI_AUTH_PASSWORD=your_password \
+  -e GEMINI_CREDENTIALS='{"client_id":"...","token":"..."}' \
   ghcr.io/sachnun/gemini-cli-go:latest
 
 ```
